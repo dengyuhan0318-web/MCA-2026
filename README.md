@@ -1,11 +1,11 @@
 # Mozart’s Piano Music: A Music Curation and Analysis Portfolio
 <!-- Version 1.0 -->
 
-## Q2:
+## Topic
 
 The topic I have chosen for my Music Curation and Analysis project is the composer Wolfgang Amadeus Mozart. I chose Mozart because when I was young, I played many of his piano works. As a result, I am familiar with his musical style and piano compositions, and I have long admired his elegant and expressive compositional style. Although Mozart’s body of work is extremely wide-ranging, including symphonies and operas, in this project I shall focus primarily on his piano sonatas and related piano works. For example, in the subsequent MuseScore task, I plan to use the piano version of Rondo Alla Turca.
 
-## Q3:
+## Challenges and Current Data Manifestations
 
 ### Challenges:
 
