@@ -8,7 +8,7 @@
 | --- | --- |
 | [Week 1](https://dengyuhan0318-web.github.io/MCA-2026/week-1.html) | Topic, challenges and current data manifestations |
 | [Week 2](https://dengyuhan0318-web.github.io/MCA-2026/week-2.html) | *Rondo alla Turca*: 15-bar MuseScore transcription |
-| Weeks 3–10 | Coming soon |
+| Weeks 3–5, 7–10 | Coming soon |
 
 ### Files
 
