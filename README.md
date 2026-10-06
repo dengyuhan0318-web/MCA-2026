@@ -19,4 +19,4 @@
 Score encodings are stored in `data/`; portfolio pages remain at the repository root. The original MuseScore source and source PDF retain their existing paths.
 
 ### AI assistance
-DeepWiki was used to support understanding of MusicXML and MEI for the three comparisons. The [activity page](verovio.html) cites the DeepWiki resources and official documentation; its examples were checked against the exported score. AI assistance also supported conversion, comparison drafting and page layout.
+DeepWiki was used to support understanding of MusicXML and MEI for the three comparisons. The [activity page](verovio.html) cites the DeepWiki resources and official documentation; its examples were checked against the exported score. 
