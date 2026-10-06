@@ -8,11 +8,11 @@
 <h3>MusicXML file</h3>
 <p>The MuseScore transcription was exported as an uncompressed MusicXML file. <a href="data/Mozart_Rondo_alla_Turca_15_bars.musicxml" download>Download the MusicXML file</a>.</p>
 <h3>MEI file</h3>
-<p>The MusicXML file was converted to MEI using Verovio. <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download the MEI file</a> · <a href="data/Mozart_Rondo_alla_Turca_15_bars_highlight.mei" download>Download the edited MEI file</a>.</p>
+<p>The MusicXML file was converted to MEI using Verovio. <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download the MEI file</a> · <a href="data/Mozart_Rondo_alla_Turca_15_bars_pitch.mei" download>Download the edited MEI file</a>.</p>
 <h3>Rendered MEI score</h3>
-<p>The notation below is rendered from the MEI file by Verovio. Use the controls to view the original score or the edited version with the first note highlighted in red.</p>
-<button id="original">Original MEI</button><button id="highlight">Modified MEI: highlight first note</button><p id="status" role="status">Loading Verovio…</p><div id="app">Verovio is loading…</div>
-<p class="note">Modification experiment: the edited copy adds <code>color="#c0392b"</code> to the first B4 note (<code>xml:id="l3xgubk"</code>). Select the modified version to see it in red. Pitch, duration and slur references remain the same.</p>
+<p>The notation below is rendered from the MEI file by Verovio. Use the controls to view the original score or the edited version with the first note raised from B4 to C5.</p>
+<button id="original">Original MEI</button><button id="pitch">Modified MEI: first note B4 → C5</button><p id="status" role="status">Loading Verovio…</p><div id="app">Verovio is loading…</div>
+<p class="note">Modification experiment: the edited copy raises the first note from B4 to C5 (one semitone). For the note with <code>xml:id="l3xgubk"</code>, <code>pname="b" oct="4"</code> is changed to <code>pname="c" oct="5"</code>. Select the modified version to see the first note one step higher on the staff. Its semiquaver duration (<code>dur="16"</code>), ID and slur references remain the same. This is an encoding experiment, not a correction to Mozart’s original melody.</p>
 </section>
 <details open><summary>Task 2: MusicXML and MEI comparison</summary><h2>Three XML element comparisons</h2>
 <p>These examples come from the exported files. MusicXML is an exchange encoding; MEI is a music encoding framework; Verovio is the software that engraves the data into notation.</p>
@@ -46,17 +46,18 @@
 &lt;notations&gt;&lt;slur type=&quot;stop&quot; number=&quot;1&quot; /&gt;&lt;/notations&gt;</code></pre><pre><code>&lt;slur xml:id=&quot;m8v21cg&quot; startid=&quot;#l3xgubk&quot; endid=&quot;#j18ftah4&quot; /&gt;</code></pre><p>References: <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/slur/">MusicXML slur</a>; <a href="https://music-encoding.org/guidelines/v4/elements/slur.html">MEI 4 slur</a>.</p></details>
 <h2>Conversion and checks</h2><p>The MuseScore score was exported as uncompressed MusicXML 4.0, imported into the current Verovio editor and exported as MEI on 6 October 2026. The old MusicXML converter redirects to the editor; the file was imported again there to ensure the correct score was used. Both files contain 175 pitched notes, 7 rest events and the same 17 measure labels. The MEI’s slur references resolve to existing notes.</p>
 <p><strong>Version note:</strong> Verovio 6.3.0 exported <code>meiversion="6.0-dev"</code> with development-schema references. The comparisons use the assignment’s MEI 4.0.1 documentation for the shared concepts; this file should not be described as an MEI 4 export. Successful rendering and content checks do not constitute full schema validation.</p>
-<footer><p><strong>Source:</strong> Source engraving © 2013 Drew Weymouth, CC BY-NC 3.0, IMSLP #286253; transcription for non-commercial coursework. This credit is retained in the exported encodings.</p><p><strong>AI assistance disclosure:</strong> OpenAI Codex, 6 October 2026, assisted with export/conversion, XML checks, drafting the three comparisons, the colour modification and GitHub page configuration. The comparisons were checked against the linked official documentation and the exported files. DeepWiki was not used. This is an AI-assisted draft for student review.</p></footer>
+<footer><p><strong>Source:</strong> Source engraving © 2013 Drew Weymouth, CC BY-NC 3.0, IMSLP #286253; transcription for non-commercial coursework. This credit is retained in the exported encodings.</p><p><strong>AI assistance disclosure:</strong> OpenAI Codex, 6 October 2026, assisted with export/conversion, XML checks, drafting the three comparisons, the first-note pitch modification and GitHub page configuration. The comparisons were checked against the linked official documentation and the exported files. DeepWiki was not used. This is an AI-assisted draft for student review.</p></footer>
 <script type="module">
 import 'https://www.verovio.org/javascript/app/verovio-app.js';
 const options={defaultView:'responsive',defaultZoom:3,enableResponsive:true,enableDocument:true};
 const app=new Verovio.App(document.getElementById('app'),options);
 const status=document.getElementById('status');
 async function loadScore(file,label){status.textContent='Loading '+label+'…';try{const response=await fetch(file);if(!response.ok)throw new Error('Score request failed: '+response.status);app.loadData(await response.text());status.textContent='Showing '+label;}catch(error){status.textContent='Unable to load score: '+error.message;}}
-const isHighlight=new URLSearchParams(window.location.search).get('version')==='highlight';
-var file=isHighlight?'data/Mozart_Rondo_alla_Turca_15_bars_highlight.mei':'data/Mozart_Rondo_alla_Turca_15_bars.mei';
+const selectedVersion=new URLSearchParams(window.location.search).get('version');
+const isPitch=selectedVersion==='pitch'||selectedVersion==='highlight';
+var file=isPitch?'data/Mozart_Rondo_alla_Turca_15_bars_pitch.mei':'data/Mozart_Rondo_alla_Turca_15_bars.mei';
 function switchVersion(version){const url=new URL(window.location.href);url.searchParams.set('version',version);window.location.assign(url.href);}
 document.getElementById('original').addEventListener('click',()=>switchVersion('original'));
-document.getElementById('highlight').addEventListener('click',()=>switchVersion('highlight'));
-loadScore(file,isHighlight?'modified MEI (first note in red)':'original MEI');
+document.getElementById('pitch').addEventListener('click',()=>switchVersion('pitch'));
+loadScore(file,isPitch?'modified MEI (first note B4 → C5)':'original MEI');
 </script></main></body></html>
