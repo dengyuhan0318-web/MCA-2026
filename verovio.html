@@ -3,10 +3,17 @@
 <title>Week 3 — Mozart in MusicXML and MEI</title>
 <style>body{margin:0;font:17px/1.65 system-ui,sans-serif;color:#2e241d;background:#faf7f1}header,main{max-width:1060px;margin:auto;padding:24px}a{color:#75421f}h1,h2,h3{line-height:1.25}pre{overflow:auto;padding:16px;background:#eee8dd;font-size:14px}#app{height:720px;background:white;border:1px solid #d8cebf}button{padding:10px 15px;margin:6px 8px 10px 0;cursor:pointer}details{margin-top:28px}summary{font-size:1.3em;font-weight:650;cursor:pointer}.note{border-left:3px solid #a67743;padding-left:16px}footer{margin-top:32px;border-top:1px solid #d8cebf;padding-top:18px;font-size:14px}</style>
 </head><body><header><a href="index.html">← Portfolio home</a> · <a href="week-3.html">Week 3</a><h1>Week 3: Encoding Mozart’s piano music</h1><p>Wolfgang Amadeus Mozart, <i>Rondo alla Turca</i>, Piano Sonata No. 11, K. 331, movement III — the Week 2 transcription.</p></header><main>
-<h2>MEI rendered with Verovio</h2>
-<p><a href="data/Mozart_Rondo_alla_Turca_15_bars.musicxml" download>Download uncompressed MusicXML</a> · <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download MEI</a> · <a href="data/Mozart_Rondo_alla_Turca_15_bars_highlight.mei" download>Download edited MEI</a></p>
+<section id="task-1" aria-labelledby="task-1-title">
+<h2 id="task-1-title">Task 1: Render an MEI file using Verovio</h2>
+<h3>MusicXML file</h3>
+<p>The MuseScore transcription was exported as an uncompressed MusicXML file. <a href="data/Mozart_Rondo_alla_Turca_15_bars.musicxml" download>Download the MusicXML file</a>.</p>
+<h3>MEI file</h3>
+<p>The MusicXML file was converted to MEI using Verovio. <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download the MEI file</a> · <a href="data/Mozart_Rondo_alla_Turca_15_bars_highlight.mei" download>Download the edited MEI file</a>.</p>
+<h3>Rendered MEI score</h3>
+<p>The notation below is rendered from the MEI file by Verovio. Use the controls to view the original score or the edited version with the first note highlighted in red.</p>
 <button id="original">Original MEI</button><button id="highlight">Modified MEI: highlight first note</button><p id="status" role="status">Loading Verovio…</p><div id="app">Verovio is loading…</div>
 <p class="note">Modification experiment: the edited copy adds <code>color="#c0392b"</code> to the first B4 note (<code>xml:id="l3xgubk"</code>). Select the modified version to see it in red. Pitch, duration and slur references remain the same.</p>
+</section>
 <details open><summary>Task 2: MusicXML and MEI comparison</summary><h2>Three XML element comparisons</h2>
 <p>These examples come from the exported files. MusicXML is an exchange encoding; MEI is a music encoding framework; Verovio is the software that engraves the data into notation.</p>
 <h3>1. Note: &lt;note&gt; → &lt;note&gt;</h3>
