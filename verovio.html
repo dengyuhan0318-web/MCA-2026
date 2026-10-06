@@ -11,8 +11,8 @@
 <p>The MusicXML file was converted to MEI using Verovio. <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download the MEI file</a> · <a href="data/Mozart_Rondo_alla_Turca_15_bars_pitch.mei" download>Download the edited MEI file</a>.</p>
 <h3>Rendered MEI score</h3>
 <p>The notation below is rendered from the MEI file by Verovio. Use the controls to view the original score or the edited version with the first note raised from B4 to C5.</p>
-<button id="original">Original MEI</button><button id="pitch">Modified MEI: first note B4 → C5</button><p id="status" role="status">Loading Verovio…</p><div id="app">Verovio is loading…</div>
-<p class="note">Modification experiment: the edited copy raises the first note from B4 to C5 (one semitone). For the note with <code>xml:id="l3xgubk"</code>, <code>pname="b" oct="4"</code> is changed to <code>pname="c" oct="5"</code>. Select the modified version to see the first note one step higher on the staff. Its semiquaver duration (<code>dur="16"</code>), ID and slur references remain the same. This is an encoding experiment, not a correction to Mozart’s original melody.</p>
+<button id="original">Original MEI</button><button id="pitch">Modified MEI: first note B4 → C5</button><p id="status" role="status" hidden></p><div id="app">Verovio is loading…</div>
+<p class="note">Modification experiment: the first note is raised from B4 to C5 (one semitone), while its duration stays the same.</p>
 </section>
 <details open><summary>Task 2: MusicXML and MEI comparison</summary><h2>Three XML element comparisons</h2>
 <p>These examples come from the exported files. MusicXML is an exchange encoding; MEI is a music encoding framework; Verovio is the software that engraves the data into notation.</p>
@@ -52,12 +52,12 @@ import 'https://www.verovio.org/javascript/app/verovio-app.js';
 const options={defaultView:'responsive',defaultZoom:3,enableResponsive:true,enableDocument:true};
 const app=new Verovio.App(document.getElementById('app'),options);
 const status=document.getElementById('status');
-async function loadScore(file,label){status.textContent='Loading '+label+'…';try{const response=await fetch(file);if(!response.ok)throw new Error('Score request failed: '+response.status);app.loadData(await response.text());status.textContent='Showing '+label;}catch(error){status.textContent='Unable to load score: '+error.message;}}
+async function loadScore(file){status.hidden=true;try{const response=await fetch(file);if(!response.ok)throw new Error('Score request failed: '+response.status);app.loadData(await response.text());}catch(error){status.textContent='Unable to load score: '+error.message;status.hidden=false;}}
 const selectedVersion=new URLSearchParams(window.location.search).get('version');
 const isPitch=selectedVersion==='pitch'||selectedVersion==='highlight';
 var file=isPitch?'data/Mozart_Rondo_alla_Turca_15_bars_pitch.mei':'data/Mozart_Rondo_alla_Turca_15_bars.mei';
 function switchVersion(version){const url=new URL(window.location.href);url.searchParams.set('version',version);window.location.assign(url.href);}
 document.getElementById('original').addEventListener('click',()=>switchVersion('original'));
 document.getElementById('pitch').addEventListener('click',()=>switchVersion('pitch'));
-loadScore(file,isPitch?'modified MEI (first note B4 → C5)':'original MEI');
+loadScore(file);
 </script></main></body></html>
