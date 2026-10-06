@@ -46,8 +46,10 @@ const options={defaultView:'responsive',defaultZoom:3,enableResponsive:true,enab
 const app=new Verovio.App(document.getElementById('app'),options);
 const status=document.getElementById('status');
 async function loadScore(file,label){status.textContent='Loading '+label+'…';try{const response=await fetch(file);if(!response.ok)throw new Error('Score request failed: '+response.status);app.loadData(await response.text());status.textContent='Showing '+label;}catch(error){status.textContent='Unable to load score: '+error.message;}}
-var file='data/Mozart_Rondo_alla_Turca_15_bars.mei';
-document.getElementById('original').addEventListener('click',()=>loadScore(file,'original MEI'));
-document.getElementById('highlight').addEventListener('click',()=>loadScore('data/Mozart_Rondo_alla_Turca_15_bars_highlight.mei','modified MEI (first note in red)'));
-loadScore(file,'original MEI');
+const isHighlight=new URLSearchParams(window.location.search).get('version')==='highlight';
+var file=isHighlight?'data/Mozart_Rondo_alla_Turca_15_bars_highlight.mei':'data/Mozart_Rondo_alla_Turca_15_bars.mei';
+function switchVersion(version){const url=new URL(window.location.href);url.searchParams.set('version',version);window.location.assign(url.href);}
+document.getElementById('original').addEventListener('click',()=>switchVersion('original'));
+document.getElementById('highlight').addEventListener('click',()=>switchVersion('highlight'));
+loadScore(file,isHighlight?'modified MEI (first note in red)':'original MEI');
 </script></main></body></html>
