@@ -7,7 +7,7 @@
 | [Week 1](https://dengyuhan0318-web.github.io/MCA-2026/week-1.html) | Topic, challenges and current data manifestations |
 | [Week 2](https://dengyuhan0318-web.github.io/MCA-2026/week-2.html) | *Rondo alla Turca*: 15-bar MuseScore transcription |
 | [Week 3](https://dengyuhan0318-web.github.io/MCA-2026/week-3.html) | MusicXML and MEI exports, Verovio rendering, three element comparisons with DeepWiki study references |
-| [Week 4](https://dengyuhan0318-web.github.io/MCA-2026/week-4.html) | jSymbolic analysis of the Rondo alla Turca excerpt, MIDI input and feature reports |
+| [Week 4](https://dengyuhan0318-web.github.io/MCA-2026/week-4.html) | jSymbolic analysis and music21 piano roll, pitch histogram and scatter plot for the Rondo alla Turca excerpt |
 | Weeks 5, 7–10 | Coming soon |
 
 ### Files
