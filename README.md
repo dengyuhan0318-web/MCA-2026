@@ -8,7 +8,8 @@
 | [Week 2](https://dengyuhan0318-web.github.io/MCA-2026/week-2.html) | *Rondo alla Turca*: 15-bar MuseScore transcription |
 | [Week 3](https://dengyuhan0318-web.github.io/MCA-2026/week-3.html) | MusicXML and MEI exports, Verovio rendering, three element comparisons with DeepWiki study references |
 | [Week 4](https://dengyuhan0318-web.github.io/MCA-2026/week-4.html) | jSymbolic analysis and music21 piano roll, pitch histogram and scatter plot for the Rondo alla Turca excerpt |
-| Weeks 5, 7–10 | Coming soon |
+| [Week 7](https://dengyuhan0318-web.github.io/MCA-2026/week-7.html) | Updated MEI metadata, genre classification, licensing and Verovio score rendering |
+| Weeks 5, 8–10 | Coming soon |
 
 ### Files
 - [Week 1 original text](week-1.md)
@@ -16,6 +17,7 @@
 - [Uncompressed MusicXML](data/Mozart_Rondo_alla_Turca_15_bars.musicxml)
 - [MEI converted with Verovio](data/Mozart_Rondo_alla_Turca_15_bars.mei)
 - [Verovio activity and comparisons](verovio.html)
+- [Updated MEI metadata (Week 7)](data/Week5-Mei-v2.mei)
 
 Score encodings are stored in `data/`; portfolio pages remain at the repository root. The original MuseScore source and source PDF retain their existing paths.
 
