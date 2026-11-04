@@ -1,34 +1,98 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Week 3 — Mozart in MusicXML and MEI</title>
-<link rel="stylesheet" href="portfolio.css?v=20261017-consistency"><style>header.page-top{max-width:none;margin:0;padding:26px 5vw}.page{max-width:1000px;padding:55px 30px 70px}.page h1{margin-top:0}.page h2{margin-top:40px}.page h3{margin-top:30px}.page pre{overflow:auto;padding:20px;background:#332219;border:1px solid #795539;color:#fff4e9;font-size:14px;line-height:1.65;border-radius:4px}.page p code{background:#332219;color:#efc99e;padding:2px 5px;border-radius:3px}#app{width:min(940px,calc(100vw - 60px));height:440px;background:#fff;color:#2e241d;border:1px solid #bc8b5c;color-scheme:light}.page footer.references{display:block;margin-top:40px;border-top:1px solid #614330;padding:24px 0 0;font-size:14px}.references p,.references li{font-size:15px}.ai-notes{margin-top:24px;padding-top:18px;border-top:1px solid #614330}.use-date{color:#c5ac96!important;font-size:13px!important}.note{border-left:3px solid #bc8b5c;padding-left:16px}button{padding:10px 15px;margin:6px 8px 10px 0;cursor:pointer}.table{overflow:auto}table{width:100%;border-collapse:collapse}td,th{border:1px solid #795539;padding:12px}thead{background:#332219}@media(max-width:700px){#app{width:100%}.page{padding:35px 22px}.page-top{padding:22px}}</style>
-</head><body class="interior"><a class="skip" href="#main">Skip to content</a><header class="page-top"><a class="brand" href="index.html">Music Curation and Analytics</a><a href="index.html">← Home</a></header><main id="main" class="page"><div class="week-heading"><span class="eyebrow">WEEK 3</span><p>MusicXML, MEI and Verovio</p></div><article><h1>Encoding Mozart’s piano music</h1><p class="lead">Wolfgang Amadeus Mozart, <i>Rondo alla Turca</i>, Piano Sonata No. 11, K. 331, movement III — the Week 2 transcription.</p>
-<section id="task-1" aria-labelledby="task-1-title">
-<h2 id="task-1-title">Task 1: Render an MEI file using Verovio</h2>
-<h3>MusicXML file</h3>
-<p>The MuseScore transcription was exported as an uncompressed MusicXML file. <a href="data/Mozart_Rondo_alla_Turca_15_bars.musicxml" download>Download the MusicXML file</a>.</p>
-<h3>MEI file</h3>
-<p>The MusicXML file was converted to MEI using Verovio. <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download the MEI file</a>.</p>
-<h3>Rendered MEI score</h3>
-<p>The notation below is rendered from the MEI file by Verovio.</p>
-<p id="status" role="status" hidden></p><div id="app">Verovio is loading…</div>
-</section>
-<section id="task-2" aria-labelledby="task-2-title"><h2 id="task-2-title">Task 2: Comparison of elements in MusicXML and MEI files</h2>
-
-<h3>1. Note: &lt;note&gt; → &lt;note&gt;</h3>
-<p>Both MusicXML and MEI use <code>&lt;note&gt;</code> to represent notes, but they are organised differently. MusicXML places pitch and duration in child elements such as <code>pitch</code>, <code>duration</code> and <code>type</code>, and uses attributes such as <code>id</code>, <code>default-x</code> and <code>default-y</code> for identification and positioning; MEI, on the other hand, uses attributes such as <code>pname</code>, <code>oct</code> and <code>dur</code> to represent note names, octaves and durations. In this example, MusicXML notes are placed directly in the <code>measure</code>, whilst MEI notes are placed in a <code>beam</code> inside a <code>layer</code> within a <code>staff</code>, or may also be placed directly in a <code>layer</code> or <code>chord</code>. For the first B4 sixteenth note, MusicXML uses <code>duration=1</code> in conjunction with <code>divisions=4</code> to specify the duration, whilst MEI uses <code>dur="16"</code>. Consequently, when we need to modify the pitch, we should change the child elements in MusicXML, whereas in MEI we should modify the attributes. In MusicXML, rests are contained in the <code>note</code> element, whilst in MEI a separate <code>rest</code> element is used.</p><pre><code>&lt;note default-x=&quot;82.99&quot; default-y=&quot;-20&quot;&gt;
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 3 — Mozart in MusicXML and MEI</title>
+    <link rel="stylesheet" href="portfolio.css?v=20261017-consistency">
+    <style>header.page-top{max-width:none;margin:0;padding:26px 5vw}.page{max-width:1000px;padding:55px 30px 70px}.page h1{margin-top:0}.page h2{margin-top:40px}.page h3{margin-top:30px}.page pre{overflow:auto;padding:20px;background:#332219;border:1px solid #795539;color:#fff4e9;font-size:14px;line-height:1.65;border-radius:4px}.page p code{background:#332219;color:#efc99e;padding:2px 5px;border-radius:3px}#app{width:min(940px,calc(100vw - 60px));height:440px;background:#fff;color:#2e241d;border:1px solid #bc8b5c;color-scheme:light}.page footer.references{display:block;margin-top:40px;border-top:1px solid #614330;padding:24px 0 0;font-size:14px}.references p,.references li{font-size:15px}.ai-notes{margin-top:24px;padding-top:18px;border-top:1px solid #614330}.use-date{color:#c5ac96!important;font-size:13px!important}.note{border-left:3px solid #bc8b5c;padding-left:16px}button{padding:10px 15px;margin:6px 8px 10px 0;cursor:pointer}.table{overflow:auto}table{width:100%;border-collapse:collapse}td,th{border:1px solid #795539;padding:12px}thead{background:#332219}@media(max-width:700px){#app{width:100%}.page{padding:35px 22px}.page-top{padding:22px}}</style>
+  </head>
+  <body class="interior">
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="page-top">
+      <a class="brand" href="index.html">Music Curation and Analytics</a>
+      <a href="index.html">← Home</a>
+    </header>
+    <main id="main" class="page">
+      <div class="week-heading">
+        <span class="eyebrow">WEEK 3</span>
+        <p>MusicXML, MEI and Verovio</p>
+      </div>
+      <article>
+        <h1>Encoding Mozart’s piano music</h1>
+        <p class="lead">
+          Wolfgang Amadeus Mozart, <i>Rondo alla Turca</i>, Piano Sonata No. 11, K. 331, movement
+          III — the Week 2 transcription.
+        </p>
+        <section id="task-1" aria-labelledby="task-1-title">
+          <h2 id="task-1-title">Task 1: Render an MEI file using Verovio</h2>
+          <h3>MusicXML file</h3>
+          <p>
+            The MuseScore transcription was exported as an uncompressed MusicXML file.
+            <a href="data/Mozart_Rondo_alla_Turca_15_bars.musicxml" download>Download the MusicXML
+            file</a>.
+          </p>
+          <h3>MEI file</h3>
+          <p>
+            The MusicXML file was converted to MEI using Verovio.
+            <a href="data/Mozart_Rondo_alla_Turca_15_bars.mei" download>Download the MEI file</a>.
+          </p>
+          <h3>Rendered MEI score</h3>
+          <p>The notation below is rendered from the MEI file by Verovio.</p>
+          <p id="status" role="status" hidden></p>
+          <div id="app">Verovio is loading…</div>
+        </section>
+        <section id="task-2" aria-labelledby="task-2-title">
+          <h2 id="task-2-title">Task 2: Comparison of elements in MusicXML and MEI files</h2>
+          <h3>1. Note: &lt;note&gt; → &lt;note&gt;</h3>
+          <p>
+            Both MusicXML and MEI use <code>&lt;note&gt;</code> to represent notes, but they are
+            organised differently. MusicXML places pitch and duration in child elements such as
+            <code>pitch</code>, <code>duration</code> and <code>type</code>, and uses attributes
+            such as <code>id</code>, <code>default-x</code> and <code>default-y</code> for
+            identification and positioning; MEI, on the other hand, uses attributes such as
+            <code>pname</code>, <code>oct</code> and <code>dur</code> to represent note names,
+            octaves and durations. In this example, MusicXML notes are placed directly in the
+            <code>measure</code>, whilst MEI notes are placed in a <code>beam</code> inside a
+            <code>layer</code> within a <code>staff</code>, or may also be placed directly in a
+            <code>layer</code> or <code>chord</code>. For the first B4 sixteenth note, MusicXML uses
+            <code>duration=1</code> in conjunction with <code>divisions=4</code> to specify the
+            duration, whilst MEI uses <code>dur="16"</code>. Consequently, when we need to modify
+            the pitch, we should change the child elements in MusicXML, whereas in MEI we should
+            modify the attributes. In MusicXML, rests are contained in the <code>note</code>
+            element, whilst in MEI a separate <code>rest</code> element is used.
+          </p>
+          <pre><code>&lt;note default-x=&quot;82.99&quot; default-y=&quot;-20&quot;&gt;
   &lt;pitch&gt;&lt;step&gt;B&lt;/step&gt;&lt;octave&gt;4&lt;/octave&gt;&lt;/pitch&gt;
   &lt;duration&gt;1&lt;/duration&gt;&lt;voice&gt;1&lt;/voice&gt;&lt;type&gt;16th&lt;/type&gt;
   &lt;stem&gt;up&lt;/stem&gt;&lt;staff&gt;1&lt;/staff&gt;
   &lt;!-- beam and notations omitted --&gt;
-&lt;/note&gt;</code></pre><pre><code>&lt;note xml:id=&quot;l3xgubk&quot; dur.ppq=&quot;1&quot; dur=&quot;16&quot;
+&lt;/note&gt;</code></pre>
+          <pre><code>&lt;note xml:id=&quot;l3xgubk&quot; dur.ppq=&quot;1&quot; dur=&quot;16&quot;
       oct=&quot;4&quot; pname=&quot;b&quot; stem.dir=&quot;up&quot; /&gt;</code></pre>
-<h3>2. Measure: &lt;measure&gt; → &lt;measure&gt;</h3>
-<p>Both MusicXML and MEI use <code>&lt;measure&gt;</code> to represent a bar, but their internal structures are not entirely the same. In the MusicXML example, the bar is contained in a <code>part</code> and must have a <code>number</code> attribute. It may also utilise attributes such as <code>implicit</code>, <code>width</code> and <code>id</code>, and its child elements include <code>note</code>, <code>attributes</code>, <code>direction</code>, <code>backup</code> and <code>barline</code>. In this example, the MEI bar is located in a <code>section</code>; MEI also permits measures within an <code>ending</code>. It can utilise attributes such as <code>n</code>, <code>xml:id</code>, <code>metcon</code> and <code>left</code>. Its child elements include <code>staff</code>, <code>mNum</code> and control events such as <code>slur</code>, whilst notes are located in the nested <code>staff/layer</code> structure. MEI organises simultaneous sounds using staves and layer containers, whereas MusicXML organises music through <code>voice</code> and <code>staff</code> values and timing movements such as <code>backup</code>.</p><pre><code>&lt;part id=&quot;P1&quot;&gt;
+          <h3>2. Measure: &lt;measure&gt; → &lt;measure&gt;</h3>
+          <p>
+            Both MusicXML and MEI use <code>&lt;measure&gt;</code> to represent a bar, but their
+            internal structures are not entirely the same. In the MusicXML example, the bar is
+            contained in a <code>part</code> and must have a <code>number</code> attribute. It may
+            also utilise attributes such as <code>implicit</code>, <code>width</code> and
+            <code>id</code>, and its child elements include <code>note</code>,
+            <code>attributes</code>, <code>direction</code>, <code>backup</code> and
+            <code>barline</code>. In this example, the MEI bar is located in a <code>section</code>;
+            MEI also permits measures within an <code>ending</code>. It can utilise attributes such
+            as <code>n</code>, <code>xml:id</code>, <code>metcon</code> and <code>left</code>. Its
+            child elements include <code>staff</code>, <code>mNum</code> and control events such as
+            <code>slur</code>, whilst notes are located in the nested <code>staff/layer</code>
+            structure. MEI organises simultaneous sounds using staves and layer containers, whereas
+            MusicXML organises music through <code>voice</code> and <code>staff</code> values and
+            timing movements such as <code>backup</code>.
+          </p>
+          <pre><code>&lt;part id=&quot;P1&quot;&gt;
   &lt;measure number=&quot;0&quot; implicit=&quot;yes&quot; width=&quot;187.36&quot;&gt;
     &lt;!-- attributes, notes, direction and backup --&gt;
   &lt;/measure&gt;
-&lt;/part&gt;</code></pre><pre><code>&lt;section xml:id=&quot;u1p8nga7&quot;&gt;
+&lt;/part&gt;</code></pre>
+          <pre><code>&lt;section xml:id=&quot;u1p8nga7&quot;&gt;
   &lt;measure xml:id=&quot;s1nf4hxw&quot; metcon=&quot;false&quot; n=&quot;0&quot;&gt;
     &lt;mNum xml:id=&quot;b1t0sw0&quot; /&gt;
     &lt;staff n=&quot;1&quot;&gt;&lt;layer n=&quot;1&quot;&gt;&lt;!-- events --&gt;&lt;/layer&gt;&lt;/staff&gt;
@@ -36,19 +100,76 @@
     &lt;!-- dynamics, tempo, slur and fingering omitted --&gt;
   &lt;/measure&gt;
 &lt;/section&gt;</code></pre>
-<h3>3. Slur: &lt;slur&gt; → &lt;slur&gt;</h3>
-<p>Both MusicXML and MEI use the <code>&lt;slur&gt;</code> element to represent a slur, but they differ in how they handle the endpoints. MusicXML typically places the slur in the <code>notations</code> of the endpoint notes, using the mandatory <code>type</code> attribute to indicate a start, stop or continuation, and employing the <code>number</code> attribute to distinguish between overlapping slurs. It may also use attributes such as <code>placement</code>, <code>bezier-x</code> and <code>bezier-y</code> to describe the position and curve shape, but the element itself has no child elements. In this example, MEI places a slur element in a measure, using <code>startid</code> and <code>endid</code> to reference the two endpoint notes; timestamps may also be used to specify the endpoints. MEI employs attributes such as <code>curvedir</code>, <code>bezier</code> and <code>bulge</code> to describe the curve, and permits the inclusion of a <code>curve</code> child element. Consequently, MusicXML must ensure that start and stop markers are correctly paired, whilst MEI must ensure that endpoint ID references are valid. When note IDs are modified, the corresponding references must also be updated.</p><pre><code>&lt;notations&gt;
+          <h3>3. Slur: &lt;slur&gt; → &lt;slur&gt;</h3>
+          <p>
+            Both MusicXML and MEI use the <code>&lt;slur&gt;</code> element to represent a slur, but
+            they differ in how they handle the endpoints. MusicXML typically places the slur in the
+            <code>notations</code> of the endpoint notes, using the mandatory <code>type</code>
+            attribute to indicate a start, stop or continuation, and employing the
+            <code>number</code> attribute to distinguish between overlapping slurs. It may also use
+            attributes such as <code>placement</code>, <code>bezier-x</code> and
+            <code>bezier-y</code> to describe the position and curve shape, but the element itself
+            has no child elements. In this example, MEI places a slur element in a measure, using
+            <code>startid</code> and <code>endid</code> to reference the two endpoint notes;
+            timestamps may also be used to specify the endpoints. MEI employs attributes such as
+            <code>curvedir</code>, <code>bezier</code> and <code>bulge</code> to describe the curve,
+            and permits the inclusion of a <code>curve</code> child element. Consequently, MusicXML
+            must ensure that start and stop markers are correctly paired, whilst MEI must ensure
+            that endpoint ID references are valid. When note IDs are modified, the corresponding
+            references must also be updated.
+          </p>
+          <pre><code>&lt;notations&gt;
   &lt;slur type=&quot;start&quot; bezier-x=&quot;23.945686&quot;
         bezier-y=&quot;13.764924&quot; number=&quot;1&quot; /&gt;
 &lt;/notations&gt;
 &lt;!-- on the endpoint note: --&gt;
-&lt;notations&gt;&lt;slur type=&quot;stop&quot; number=&quot;1&quot; /&gt;&lt;/notations&gt;</code></pre><pre><code>&lt;slur xml:id=&quot;m8v21cg&quot; startid=&quot;#l3xgubk&quot; endid=&quot;#j18ftah4&quot; /&gt;</code></pre></section>
-<footer class="references"><h2>Source and references</h2><p>Source engraving © 2013 Drew Weymouth, CC BY-NC 3.0, IMSLP #286253; transcription for non-commercial coursework. This credit is retained in the exported encodings.</p><ul><li>Note: <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/note/">MusicXML note</a>; <a href="https://music-encoding.org/guidelines/v4/elements/note.html">MEI 4 note</a>.</li><li>Measure: <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/measure-partwise/">MusicXML measure (partwise)</a>; <a href="https://music-encoding.org/guidelines/v4/elements/measure.html">MEI 4 measure</a>.</li><li>Slur: <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/slur/">MusicXML slur</a>; <a href="https://music-encoding.org/guidelines/v4/elements/slur.html">MEI 4 slur</a>.</li><li>DeepWiki: <a href="https://deepwiki.com/w3c/mnxconverter/6.1-musicxml-format-details">MusicXML Format Details</a>; <a href="https://deepwiki.com/music-encoding/music-encoding/2.1-core-modules">MEI Core Modules</a>.</li></ul><section class="ai-notes" aria-labelledby="ai-notes-title">
-<h2 id="ai-notes-title">AI assistance notes</h2>
-<p>DeepWiki was used to aid understanding of the MusicXML structure and the organisation of MEI attributes. OpenAI Codex was used for basic formatting and syntax checking.</p>
-<p class="use-date">Date of use: <time datetime="2026-10-09">9th Oct</time></p>
-</section></footer>
-<script type="module">
+&lt;notations&gt;&lt;slur type=&quot;stop&quot; number=&quot;1&quot; /&gt;&lt;/notations&gt;</code></pre>
+          <pre><code>&lt;slur xml:id=&quot;m8v21cg&quot; startid=&quot;#l3xgubk&quot; endid=&quot;#j18ftah4&quot; /&gt;</code></pre>
+        </section>
+        <footer class="references">
+          <h2>Source and references</h2>
+          <p>
+            Source engraving © 2013 Drew Weymouth, CC BY-NC 3.0, IMSLP #286253; transcription for
+            non-commercial coursework. This credit is retained in the exported encodings.
+          </p>
+          <ul>
+            <li>
+              Note:
+              <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/note/">MusicXML
+              note</a>; <a href="https://music-encoding.org/guidelines/v4/elements/note.html">MEI 4
+              note</a>.
+            </li>
+            <li>
+              Measure:
+              <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/measure-partwise/">MusicXML
+              measure (partwise)</a>;
+              <a href="https://music-encoding.org/guidelines/v4/elements/measure.html">MEI 4
+              measure</a>.
+            </li>
+            <li>
+              Slur:
+              <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/slur/">MusicXML
+              slur</a>; <a href="https://music-encoding.org/guidelines/v4/elements/slur.html">MEI 4
+              slur</a>.
+            </li>
+            <li>
+              DeepWiki:
+              <a href="https://deepwiki.com/w3c/mnxconverter/6.1-musicxml-format-details">MusicXML
+              Format Details</a>;
+              <a href="https://deepwiki.com/music-encoding/music-encoding/2.1-core-modules">MEI Core
+              Modules</a>.
+            </li>
+          </ul>
+          <section class="ai-notes" aria-labelledby="ai-notes-title">
+            <h2 id="ai-notes-title">AI assistance notes</h2>
+            <p>
+              DeepWiki was used to aid understanding of the MusicXML structure and the organisation
+              of MEI attributes. OpenAI Codex was used for basic formatting and syntax checking.
+            </p>
+            <p class="use-date">Date of use: <time datetime="2026-10-09">9th Oct</time></p>
+          </section>
+        </footer>
+        <script type="module">
 import 'https://www.verovio.org/javascript/app/verovio-app.js';
 const options={defaultView:'responsive',defaultZoom:3,enableResponsive:true,enableDocument:true};
 const app=new Verovio.App(document.getElementById('app'),options);
@@ -76,4 +197,27 @@ window.addEventListener('resize',fitScorePanel);
 
 async function loadScore(file){status.hidden=true;try{const response=await fetch(file);if(!response.ok)throw new Error('Score request failed: '+response.status);app.loadData(await response.text());}catch(error){status.textContent='Unable to load score: '+error.message;status.hidden=false;}}
 loadScore('data/Mozart_Rondo_alla_Turca_15_bars.mei');
-</script></article><div class="bottom-nav"><a href="index.html">← Home Page</a><a href="week-4.html">Week 4 →</a></div><nav class="week-nav" aria-label="Portfolio weeks"><a href="week-1.html">Week 1</a><a href="week-2.html">Week 2</a><a aria-current="page" href="week-3.html">Week 3</a><a href="week-4.html">Week 4</a><a href="week-5.html">Week 5</a><a href="week-7.html">Week 7</a><a href="week-8.html">Week 8<small>Coming soon</small></a><a href="week-9.html">Week 9<small>Coming soon</small></a><a href="week-10.html">Week 10<small>Coming soon</small></a></nav></main><footer>Music Curation and Analytics <span>Hana Deng · 2026</span></footer></body></html>
+</script>
+      </article>
+      <div class="bottom-nav">
+        <a href="index.html">← Home Page</a>
+        <a href="week-4.html">Week 4 →</a>
+      </div>
+      <nav class="week-nav" aria-label="Portfolio weeks">
+        <a href="week-1.html">Week 1</a>
+        <a href="week-2.html">Week 2</a>
+        <a aria-current="page" href="week-3.html">Week 3</a>
+        <a href="week-4.html">Week 4</a>
+        <a href="week-5.html">Week 5</a>
+        <a href="week-7.html">Week 7</a>
+        <a href="week-8.html">Week 8<small>Coming soon</small></a>
+        <a href="week-9.html">Week 9<small>Coming soon</small></a>
+        <a href="week-10.html">Week 10<small>Coming soon</small></a>
+      </nav>
+    </main>
+    <footer>
+      Music Curation and Analytics
+      <span>Hana Deng · 2026</span>
+    </footer>
+  </body>
+</html>
