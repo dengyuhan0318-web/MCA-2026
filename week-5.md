@@ -11,7 +11,7 @@ I selected the following eight metadata elements to describe the music, its sour
 - **Work title:** The parent work containing the excerpt — *Piano Sonata No. 11 in A major*.
 - **Performance medium:** The instrument used to perform the music — piano.
 
-# Task 2: Updated MEI File
+## Task 2: Updated MEI File
 
 These metadata elements are included in the header of my final MEI document. Here is my updated [MEI file](data/Week5-Mei.mei) for Week 5.
 
