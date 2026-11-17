@@ -2,6 +2,117 @@
 <html>
   <head>
     <title>Home | Music Curation and Analytics</title>
+    <link rel="stylesheet" href="portfolio.css?v=20261117">
+ <style>
+  /* 1. Piano background, brown overlay and page spacing */
+  body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 28px 5vw;
+    text-align: center;
+    background-color: #211610;
+    background-image:
+      linear-gradient(
+        90deg,
+        rgba(39, 22, 12, 0.62),
+        rgba(24, 13, 7, 0.55)
+      ),
+      url("piano-background-brown.svg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  /* 2. GitHub link at the top of the page */
+  body > p:first-of-type {
+    margin: 0;
+    text-align: right;
+    font-size: 13px;
+  }
+
+  /* 3. Main heading */
+  body > h1 {
+    max-width: 1000px;
+    margin: 100px auto 32px;
+    font-size: clamp(44px, 7vw, 108px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -2px;
+  }
+
+  /* 4. Introduction below the main heading */
+  body > h1 + p {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    color: #ebd9c8;
+    font-size: clamp(17px, 1.7vw, 25px);
+    line-height: 1.7;
+  }
+
+  /* 5. Navigation layout and hidden text separators */
+  .week-nav {
+    margin: 0 auto 60px;
+    gap: 0;
+    font-size: 0;
+  }
+
+  /* 6. Navigation buttons with vertically stacked text */
+  .week-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 140px;
+    min-height: 90px;
+    margin: 6px;
+    font-size: 18px;
+    white-space: normal;
+  }
+
+  /* 7. AI assistance heading and statement */
+  body > h2 {
+    max-width: 1000px;
+    margin: 50px auto 0;
+    padding: 24px 28px 12px;
+    border: 1px solid #795539;
+    border-bottom: 0;
+    background: rgba(51, 34, 25, 0.92);
+    text-align: left;
+    font-size: 22px;
+  }
+
+  body > h2 + p {
+    max-width: 1000px;
+    margin: 0 auto 50px;
+    padding: 0 28px 24px;
+    border: 1px solid #795539;
+    border-top: 0;
+    background: rgba(51, 34, 25, 0.92);
+    color: #e1cebc;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  /* 8. Footer */
+  footer {
+    display: block;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 22px 0;
+    border-top: 1px solid #614330;
+    text-align: center;
+  }
+
+  footer p {
+    margin: 0;
+  }
+
+  footer small {
+    font-size: 13px;
+  }
+</style>
   </head>
   <body>
     <p>
@@ -22,7 +133,7 @@
       </nav>
     <h2>AI assistance</h2>
     <p>
-  ChatGPT was used to help add and format the footer, displaying my name and my student number.
+  ChatGPT helped me add and set the homepage color scheme, piano background, and navigation style, providing guidance and code for HTML and CSS.
     </p>
     <footer>
   <p>
