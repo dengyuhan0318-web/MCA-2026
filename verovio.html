@@ -1,31 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Week 3 — Mozart in MusicXML and MEI</title>
     <link rel="stylesheet" href="portfolio.css?v=20261017-consistency">
-    <style>header.page-top{max-width:none;margin:0;padding:26px 5vw}.page{max-width:1000px;padding:55px 30px 70px}.page h1{margin-top:0}.page h2{margin-top:40px}.page h3{margin-top:30px}.page pre{overflow:auto;padding:20px;background:#332219;border:1px solid #795539;color:#fff4e9;font-size:14px;line-height:1.65;border-radius:4px}.page p code{background:#332219;color:#efc99e;padding:2px 5px;border-radius:3px}#app{width:min(940px,calc(100vw - 60px));height:440px;background:#fff;color:#2e241d;border:1px solid #bc8b5c;color-scheme:light}.page footer.references{display:block;margin-top:40px;border-top:1px solid #614330;padding:24px 0 0;font-size:14px}.references p,.references li{font-size:15px}.ai-notes{margin-top:24px;padding-top:18px;border-top:1px solid #614330}.use-date{color:#c5ac96!important;font-size:13px!important}.note{border-left:3px solid #bc8b5c;padding-left:16px}button{padding:10px 15px;margin:6px 8px 10px 0;cursor:pointer}.table{overflow:auto}table{width:100%;border-collapse:collapse}td,th{border:1px solid #795539;padding:12px}thead{background:#332219}@media(max-width:700px){#app{width:100%}.page{padding:35px 22px}.page-top{padding:22px}}</style>
+    <style>  
+      /* Score display */
+  #app {
+    width: 100%;
+    height: 440px;
+    background: #fff;
+    color: #2e241d;
+    color-scheme: light;
+  }
+
+  /* Encoding examples */
+  .page pre {
+    overflow: auto;
+    padding: 16px;
+    background: #332219;
+    color: #fff4e9;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .page p code {
+    color: #efc99e;
+  }
+
+  /* References */
+  .references {
+    margin-top: 40px;
+  }
+
+  .references p,
+  .references li {
+    font-size: 15px;
+  }</style>
   </head>
-  <body class="interior">
-    <a class="skip" href="#main">Skip to content</a>
-    <header class="page-top">
-      <a class="brand" href="index.html">Music Curation and Analytics</a>
-      <a href="index.html">← Home</a>
-    </header>
-    <main id="main" class="page">
-      <div class="week-heading">
-        <span class="eyebrow">WEEK 3</span>
-        <p>MusicXML, MEI and Verovio</p>
-      </div>
-      <article>
-        <h1>Encoding Mozart’s piano music</h1>
-        <p class="lead">
-          Wolfgang Amadeus Mozart, <i>Rondo alla Turca</i>, Piano Sonata No. 11, K. 331, movement
-          III — the Week 2 transcription.
-        </p>
-        <section id="task-1" aria-labelledby="task-1-title">
-          <h2 id="task-1-title">Task 1: Render an MEI file using Verovio</h2>
+  <body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <main id="main" class="page">
+    <article>
+      <h1>Encoding Mozart’s piano music</h1>
+
+      <p>
+        Wolfgang Amadeus Mozart, <i>Rondo alla Turca</i>,
+        Piano Sonata No. 11, K. 331, movement III —
+        the Week 2 transcription.
+      </p>
+        <section>
+  <h2>Task 1: Render an MEI file using Verovio</h2>
           <h3>MusicXML file</h3>
           <p>
             The MuseScore transcription was exported as an uncompressed MusicXML file.
@@ -42,8 +67,8 @@
           <p id="status" role="status" hidden></p>
           <div id="app">Verovio is loading…</div>
         </section>
-        <section id="task-2" aria-labelledby="task-2-title">
-          <h2 id="task-2-title">Task 2: Comparison of elements in MusicXML and MEI files</h2>
+        <section>
+  <h2>Task 2: Comparison of elements in MusicXML and MEI files</h2>
           <h3>1. Note: &lt;note&gt; → &lt;note&gt;</h3>
           <p>
             Both MusicXML and MEI use <code>&lt;note&gt;</code> to represent notes, but they are
@@ -126,7 +151,7 @@
 &lt;notations&gt;&lt;slur type=&quot;stop&quot; number=&quot;1&quot; /&gt;&lt;/notations&gt;</code></pre>
           <pre><code>&lt;slur xml:id=&quot;m8v21cg&quot; startid=&quot;#l3xgubk&quot; endid=&quot;#j18ftah4&quot; /&gt;</code></pre>
         </section>
-        <h2 id="reflection">Reflection</h2>
+        <h2>Reflection</h2>
         <p>
           This week, I exported a work from MuseScore as MusicXML, converted it to MEI, and rendered
           the score using Verovio. By comparing notes, bars and slurs, I realised that similar
@@ -138,49 +163,38 @@
           in the file. It can help to improve the accuracy of the encoding for subsequent musical
           analysis.
         </p>
-        <footer class="references">
-          <h2>Source and references</h2>
-          <p>
-            Source engraving © 2013 Drew Weymouth, CC BY-NC 3.0, IMSLP #286253; transcription for
-            non-commercial coursework. This credit is retained in the exported encodings.
-          </p>
-          <ul>
-            <li>
-              Note:
-              <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/note/">MusicXML
-              note</a>; <a href="https://music-encoding.org/guidelines/v4/elements/note.html">MEI 4
-              note</a>.
-            </li>
-            <li>
-              Measure:
-              <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/measure-partwise/">MusicXML
-              measure (partwise)</a>;
-              <a href="https://music-encoding.org/guidelines/v4/elements/measure.html">MEI 4
-              measure</a>.
-            </li>
-            <li>
-              Slur:
-              <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/slur/">MusicXML
-              slur</a>; <a href="https://music-encoding.org/guidelines/v4/elements/slur.html">MEI 4
-              slur</a>.
-            </li>
-            <li>
-              DeepWiki:
-              <a href="https://deepwiki.com/w3c/mnxconverter/6.1-musicxml-format-details">MusicXML
-              Format Details</a>;
-              <a href="https://deepwiki.com/music-encoding/music-encoding/2.1-core-modules">MEI Core
-              Modules</a>.
-            </li>
-          </ul>
-          <section class="ai-notes" aria-labelledby="ai-notes-title">
-            <h2 id="ai-notes-title">AI assistance notes</h2>
-            <p>
-              DeepWiki was used to aid understanding of the MusicXML structure and the organisation
-              of MEI attributes. OpenAI Codex was used for basic formatting and syntax checking.
-            </p>
-            <p class="use-date">Date of use: <time datetime="2026-10-09">9th Oct</time></p>
-          </section>
-        </footer>
+        <div class="references">
+  <h2>Source and references</h2>
+
+  <p>
+    Source engraving © 2013 Drew Weymouth, CC BY-NC 3.0,
+    IMSLP #286253; transcription for non-commercial coursework.
+    This credit is retained in the exported encodings.
+  </p>
+
+  <ul>
+    <li>
+      Note:
+      <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/note/">MusicXML note</a>;
+      <a href="https://music-encoding.org/guidelines/v4/elements/note.html">MEI 4 note</a>.
+    </li>
+    <li>
+      Measure:
+      <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/measure-partwise/">MusicXML measure (partwise)</a>;
+      <a href="https://music-encoding.org/guidelines/v4/elements/measure.html">MEI 4 measure</a>.
+    </li>
+    <li>
+      Slur:
+      <a href="https://www.w3.org/2021/06/musicxml40/musicxml-reference/elements/slur/">MusicXML slur</a>;
+      <a href="https://music-encoding.org/guidelines/v4/elements/slur.html">MEI 4 slur</a>.
+    </li>
+    <li>
+      DeepWiki:
+      <a href="https://deepwiki.com/w3c/mnxconverter/6.1-musicxml-format-details">MusicXML Format Details</a>;
+      <a href="https://deepwiki.com/music-encoding/music-encoding/2.1-core-modules">MEI Core Modules</a>.
+    </li>
+  </ul>
+</div>
         <script type="module">
 import 'https://www.verovio.org/javascript/app/verovio-app.js';
 const options={defaultView:'responsive',defaultZoom:3,enableResponsive:true,enableDocument:true};
@@ -206,30 +220,51 @@ function fitScorePanel(){
 }
 new MutationObserver(fitScorePanel).observe(scorePanel,{childList:true,subtree:true});
 window.addEventListener('resize',fitScorePanel);
-
 async function loadScore(file){status.hidden=true;try{const response=await fetch(file);if(!response.ok)throw new Error('Score request failed: '+response.status);app.loadData(await response.text());}catch(error){status.textContent='Unable to load score: '+error.message;status.hidden=false;}}
 loadScore('data/Mozart_Rondo_alla_Turca_15_bars.mei');
 </script>
       </article>
-      <div class="bottom-nav">
-        <a href="index.html">← Home Page</a>
-        <a href="week-4.html">Week 4 →</a>
-      </div>
-      <nav class="week-nav" aria-label="Portfolio weeks">
-        <a href="week-1.html">Week 1</a>
-        <a href="week-2.html">Week 2</a>
-        <a aria-current="page" href="week-3.html">Week 3</a>
-        <a href="week-4.html">Week 4</a>
-        <a href="week-5.html">Week 5</a>
-        <a href="week-7.html">Week 7</a>
-        <a href="week-8.html">Week 8<small>Coming soon</small></a>
-        <a href="week-9.html">Week 9<small>Coming soon</small></a>
-        <a href="week-10.html">Week 10<small>Coming soon</small></a>
-      </nav>
-    </main>
-    <footer>
-      Music Curation and Analytics
-      <span>Hana Deng · 2026</span>
-    </footer>
-  </body>
+          <nav class="week-nav">
+      <a href="index.html">Homepage</a>
+      <a href="week-1.html">Week 1</a>
+      <a href="week-2.html">Week 2</a>
+      <a href="verovio.html">Week 3</a>
+      <a href="week-4.html">Week 4</a>
+      <a href="week-5.html">Week 5</a>
+      <a href="week-7.html">Week 7</a>
+      <a href="week-8.html">
+        Week 8
+        <small>Coming soon</small>
+      </a>
+      <a href="week-9.html">
+        Week 9
+        <small>Coming soon</small>
+      </a>
+      <a href="week-10.html">
+        Week 10
+        <small>Coming soon</small>
+      </a>
+    </nav>
+
+    <h2 id="ai-assistance">AI assistance</h2>
+    <p>
+      DeepWiki was used to aid understanding of the MusicXML structure
+      and the organisation of MEI attributes. OpenAI Codex was used
+      for basic formatting and syntax checking.
+      Date of use: 9 October 2026.
+      ChatGPT provided HTML and CSS guidance and code to match this
+      page's background, colours, layout, navigation and footer
+      to Week 1.
+    </p>
+  </main>
+
+  <footer>
+    <p>
+      <small>
+        Music Curation and Analytics
+        Hana Deng · 3050366D
+      </small>
+    </p>
+  </footer>
+</body>
 </html>
