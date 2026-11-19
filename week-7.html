@@ -20,13 +20,15 @@
   }
 
   .secondary {
-    font: inherit;
-    color: #efc99e;
-    background: transparent;
-    border: 1px solid #bc8b5c;
-    padding: 10px 16px;
-    cursor: pointer;
-  }
+  font: inherit;
+  color: #efc99e;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  cursor: pointer;
+}
 
   .secondary:focus-visible {
     outline: 3px solid #f6dbb8;
@@ -158,3 +160,89 @@
       </small>
     </p>
   </footer>
+   <script type="module">
+    // Use the same updated MEI data for the metadata and the score.
+    const meiFile = "data/Week5-Mei-v2.mei";
+    const metadataElement = document.getElementById("MEImeta");
+    const scoreElement = document.getElementById("app");
+
+    try {
+      const response = await fetch(meiFile);
+      if (!response.ok) throw new Error(`MEI request failed (${response.status}).`);
+      const meiText = await response.text();
+      const xml = new DOMParser().parseFromString(meiText, "application/xml");
+      if (xml.querySelector("parsererror")) throw new Error("The MEI file contains invalid XML.");
+
+      const converter = new CETEI();
+      converter.addBehaviors({ namespaces: { mei: "http://www.music-encoding.org/ns/mei" } });
+      converter.makeHTML5(meiText, function (data) {
+        const meiHead = data.querySelector("mei-meihead");
+        if (!meiHead) throw new Error("No MEI header was found.");
+        metadataElement.replaceChildren(meiHead);
+      });
+
+      const read = (selector, scope = xml) => scope.querySelector(selector)?.textContent.trim() || "";
+      const parentWork = xml.querySelector("workList > work");
+      document.getElementById("piece-title").textContent = read("fileDesc > titleStmt > title");
+      document.getElementById("work-title").textContent = `${read("title", parentWork)} · ${read("identifier", parentWork)} · Movement III`;
+
+      const fields = document.getElementById("metadata-fields");
+      function addField(label, value, url) {
+        if (!value) return;
+        const row = document.createElement("div");
+        const term = document.createElement("dt");
+        const description = document.createElement("dd");
+        term.textContent = label;
+        if (url && /^https?:\/\//.test(url)) {
+          const link = document.createElement("a");
+          link.href = url;
+          link.textContent = value;
+          description.appendChild(link);
+        } else {
+          description.textContent = value;
+        }
+        row.append(term, description);
+        fields.appendChild(row);
+      }
+      addField("Composer", read('titleStmt persName[role="composer"]'));
+      addField("Encoded by", read('titleStmt persName[role="encoder"]'));
+      addField("Source engraver", read('sourceDesc persName[role="publisher"]'));
+      addField("Date encoded", read('pubStmt > date[type="encoding-date"]'));
+      addField("Metadata revised", xml.querySelector("revisionDesc > change")?.getAttribute("isodate"));
+      addField("Work genre", read('classification > termList > term[type="genre"]', parentWork));
+      addField("Movement genre", read('componentList term[type="genre-form"]', parentWork));
+      addField("Performing medium", read('classification > termList > term[type="medium"]', parentWork));
+      const licence = xml.querySelector('useRestrict[type="license"]');
+      addField("Licence", "CC BY-NC 3.0", licence?.querySelector("ref")?.getAttribute("target"));
+      addField("Source", "Drew Weymouth engraving, IMSLP #286253", xml.querySelector("sourceDesc ref")?.getAttribute("target"));
+      addField("Edition", read("editionStmt > edition"));
+
+      const details = document.getElementById("metadata-details");
+      for (const element of xml.querySelectorAll('useRestrict[type="attribution"], useRestrict[type="rights-scope"], notesStmt > annot, revisionDesc > change > changeDesc')) {
+        const paragraph = document.createElement("p");
+        paragraph.textContent = element.textContent.replace(/\s+/g, " ").trim();
+        details.appendChild(paragraph);
+      }
+      const toggle = document.getElementById("metadata-toggle");
+      toggle.addEventListener("click", () => {
+        const showRaw = metadataElement.hidden;
+        metadataElement.hidden = !showRaw;
+        document.getElementById("formatted-metadata").hidden = showRaw;
+        toggle.setAttribute("aria-pressed", String(showRaw));
+        toggle.textContent = showRaw ? "Show formatted metadata" : "Show raw metadata";
+      });
+
+      await import("https://www.verovio.org/javascript/app/verovio-app.js");
+      const app = new Verovio.App(scoreElement, {});
+      app.loadData(meiText);
+    } catch (error) {
+      if (metadataElement.textContent === "Loading metadata...") {
+        metadataElement.textContent = "The metadata could not be loaded. Check that data/Week5-Mei-v2.mei is available.";
+        document.getElementById("piece-title").textContent = "Metadata could not be loaded.";
+      }
+      scoreElement.textContent = "The score could not be loaded. Check the MEI file and the internet connection required by Verovio.";
+      console.error(error);
+    }
+  </script>
+   </body>
+</html>
