@@ -165,14 +165,6 @@
         paragraph.textContent = element.textContent.replace(/\s+/g, " ").trim();
         details.appendChild(paragraph);
       }
-      const toggle = document.getElementById("metadata-toggle");
-      toggle.addEventListener("click", () => {
-        const showRaw = metadataElement.hidden;
-        metadataElement.hidden = !showRaw;
-        document.getElementById("formatted-metadata").hidden = showRaw;
-        toggle.setAttribute("aria-pressed", String(showRaw));
-        toggle.textContent = showRaw ? "Show formatted metadata" : "Show raw metadata";
-      });
 
       await import("https://www.verovio.org/javascript/app/verovio-app.js");
       const app = new Verovio.App(scoreElement, {});
