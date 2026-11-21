@@ -41,7 +41,7 @@
     <h3 id="piece-title">Loading metadata...</h3>
     <p id="work-title"></p>
     <dl id="metadata-fields"></dl>
-    <div id="metadata-details"></div>
+    
   </div>
   <div id="MEImeta" hidden>Loading metadata...</div>
 </section>
@@ -169,12 +169,6 @@
       addField("Source", "Drew Weymouth engraving, IMSLP #286253", xml.querySelector("sourceDesc ref")?.getAttribute("target"));
       addField("Edition", read("editionStmt > edition"));
 
-      const details = document.getElementById("metadata-details");
-      for (const element of xml.querySelectorAll('useRestrict[type="attribution"], useRestrict[type="rights-scope"], notesStmt > annot, revisionDesc > change > changeDesc')) {
-        const paragraph = document.createElement("p");
-        paragraph.textContent = element.textContent.replace(/\s+/g, " ").trim();
-        details.appendChild(paragraph);
-      }
 
       await import("https://www.verovio.org/javascript/app/verovio-app.js");
       const app = new Verovio.App(scoreElement, {});
