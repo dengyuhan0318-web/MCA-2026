@@ -164,7 +164,10 @@
 
 
       await import("https://www.verovio.org/javascript/app/verovio-app.js");
-      const app = new Verovio.App(scoreElement, {});
+      const app = new Verovio.App(scoreElement, {
+  defaultView: "responsive",
+  responsiveZoom: 5
+});
       app.loadData(meiText);
     } catch (error) {
      if (document.getElementById("piece-title").textContent === "Loading metadata...") {
