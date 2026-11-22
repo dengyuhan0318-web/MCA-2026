@@ -164,11 +164,15 @@
 
 
       await import("https://www.verovio.org/javascript/app/verovio-app.js");
-      const app = new Verovio.App(scoreElement, {
+
+localStorage.removeItem("options");
+
+const app = new Verovio.App(scoreElement, {
   defaultView: "responsive",
   responsiveZoom: 5
 });
-      app.loadData(meiText);
+
+app.loadData(meiText);
     } catch (error) {
      if (document.getElementById("piece-title").textContent === "Loading metadata...") {
   document.getElementById("piece-title").textContent = "Metadata could not be loaded.";
