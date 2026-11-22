@@ -11,9 +11,7 @@
     color: #2e241d;
     color-scheme: light;
   }
-</style>
-    <script src="js/CETEI.js"></script>
-  
+</style>  
   </head>
  <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -41,17 +39,15 @@
     <h3 id="piece-title">Loading metadata...</h3>
     <p id="work-title"></p>
     <dl id="metadata-fields"></dl>
-    
   </div>
-  <div id="MEImeta" hidden>Loading metadata...</div>
 </section>
           </section>
           <h3>Rendered score</h3>
           <div id="app">Loading Verovio...</div>
-          <p class="score-credit">
-            Score rendering provided by <a href="https://www.verovio.org/">Verovio</a>. Raw metadata
-            displayed with <a href="https://github.com/TEIC/CETEIcean/">CETEIcean</a>.
-          </p>
+          <p>
+  Score rendering provided by
+  <a href="https://www.verovio.org/">Verovio</a>.
+</p>
         </section>
         <h2>Reflection</h2>
         <p>
@@ -115,7 +111,7 @@
    <script type="module">
     // Use the same updated MEI data for the metadata and the score.
     const meiFile = "data/Week5-Mei-v2.mei";
-    const metadataElement = document.getElementById("MEImeta");
+    
     const scoreElement = document.getElementById("app");
 
     try {
@@ -124,15 +120,6 @@
       const meiText = await response.text();
       const xml = new DOMParser().parseFromString(meiText, "application/xml");
       if (xml.querySelector("parsererror")) throw new Error("The MEI file contains invalid XML.");
-
-      const converter = new CETEI();
-      converter.addBehaviors({ namespaces: { mei: "http://www.music-encoding.org/ns/mei" } });
-      converter.makeHTML5(meiText, function (data) {
-        const meiHead = data.querySelector("mei-meihead");
-        if (!meiHead) throw new Error("No MEI header was found.");
-        metadataElement.replaceChildren(meiHead);
-      });
-
       const read = (selector, scope = xml) => scope.querySelector(selector)?.textContent.trim() || "";
       const parentWork = xml.querySelector("workList > work");
       document.getElementById("piece-title").textContent = read("fileDesc > titleStmt > title");
@@ -174,10 +161,9 @@
       const app = new Verovio.App(scoreElement, {});
       app.loadData(meiText);
     } catch (error) {
-      if (metadataElement.textContent === "Loading metadata...") {
-        metadataElement.textContent = "The metadata could not be loaded. Check that data/Week5-Mei-v2.mei is available.";
-        document.getElementById("piece-title").textContent = "Metadata could not be loaded.";
-      }
+     if (document.getElementById("piece-title").textContent === "Loading metadata...") {
+  document.getElementById("piece-title").textContent = "Metadata could not be loaded.";
+}
       scoreElement.textContent = "The score could not be loaded. Check the MEI file and the internet connection required by Verovio.";
       console.error(error);
     }
