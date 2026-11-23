@@ -1,47 +1,128 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hana Deng’s Music Curation and Analytics portfolio, exploring Mozart’s piano music.">
-    <title>Week 8 | Music Curation and Analytics</title>
-    <link rel="stylesheet" href="portfolio.css?v=20261017-consistency">
-  </head>
-  <body class="interior">
-    <a class="skip" href="#main">Skip to content</a>
-    <header class="page-top">
-      <a class="brand" href="index.html">Music Curation and Analytics</a>
-      <a href="index.html">← Home</a>
-    </header>
-    <main id="main" class="page">
-      <div class="week-heading">
-        <span class="eyebrow">WEEK 8</span>
-        <p>Coming soon</p>
-      </div>
-      <article>
-        <h1>Week 8</h1>
-        <p class="lead">Coming soon</p>
-        <p>This page is reserved for a future weekly portfolio entry.</p>
-      </article>
-      <div class="bottom-nav">
-        <a href="index.html">← Home Page</a>
-        <a href="week-9.html">Week 9 →</a>
-      </div>
-      <nav class="week-nav" aria-label="Portfolio weeks">
-        <a  href="week-1.html">Week 1</a>
-        <a  href="week-2.html">Week 2</a>
-        <a  href="week-3.html">Week 3</a>
-        <a  href="week-4.html">Week 4</a>
-        <a  href="week-5.html">Week 5</a>
-        <a  href="week-7.html">Week 7</a>
-        <a aria-current="page" href="week-8.html">Week 8<small>Coming soon</small></a>
-        <a  href="week-9.html">Week 9<small>Coming soon</small></a>
-        <a  href="week-10.html">Week 10<small>Coming soon</small></a>
-      </nav>
-    </main>
-    <footer>
-      Music Curation and Analytics
-      <span>Hana Deng · 2026</span>
-    </footer>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Three Mozart recordings, metadata, waveforms and log-frequency spectrograms for Week 8.">
+  <title>Week 8 | Music Curation and Analytics</title>
+  <link rel="stylesheet" href="portfolio.css?v=20261117">
+  <link rel="stylesheet" href="week-8.css">
+</head>
+<body class="week-eight">
+  <a class="skip" href="#main">Skip to content</a>
+  <main class="page" id="main">
+    <article>
+<h1>Week 8: Mozart recordings and audio visualisation</h1>
+<h2>Task 1: Find and describe three related audio tracks</h2>
+<section class="track-description" aria-labelledby="track-525">
+  <h3 id="track-525">Track 01: Eine kleine Nachtmusik, K. 525: I. Allegro</h3>
+  <audio controls preload="none" aria-label="Listen to Track 01, K. 525">
+    <source src="data/week8/audio/01_Mozart_K525_I_Allegro_Advent.ogg" type="audio/ogg">
+    Your browser does not support this audio format. Use the download link below.
+  </audio>
+  <p class="audio-download"><a href="data/week8/audio/01_Mozart_K525_I_Allegro_Advent.ogg" download>Download the Ogg recording</a></p>
+</section>
+<section class="track-description" aria-labelledby="track-622">
+  <h3 id="track-622">Track 02: Clarinet Concerto in A major, K. 622: II. Adagio</h3>
+  <audio controls preload="none" aria-label="Listen to Track 02, K. 622">
+    <source src="data/week8/audio/02_Mozart_K622_II_Adagio_Krumpoeck.ogg" type="audio/ogg">
+    Your browser does not support this audio format. Use the download link below.
+  </audio>
+  <p class="audio-download"><a href="data/week8/audio/02_Mozart_K622_II_Adagio_Krumpoeck.ogg" download>Download the Ogg recording</a></p>
+</section>
+<section class="track-description" aria-labelledby="track-620">
+  <h3 id="track-620">Track 03: The Magic Flute, K. 620: Der Hölle Rache kocht in meinem Herzen</h3>
+  <audio controls preload="none" aria-label="Listen to Track 03, K. 620">
+    <source src="data/week8/audio/03_Mozart_K620_Der_Hoelle_Rache_Partridge.ogg" type="audio/ogg">
+    Your browser does not support this audio format. Use the download link below.
+  </audio>
+  <p class="audio-download"><a href="data/week8/audio/03_Mozart_K620_Der_Hoelle_Rache_Partridge.ogg" download>Download the Ogg recording</a></p>
+</section>
+<h3>Metadata comparison</h3>
+<div class="metadata-scroll" role="region" aria-label="Audio metadata comparison" tabindex="0">
+  <table class="metadata-table">
+    <caption>Technical and descriptive metadata for the three selected recordings</caption>
+    <thead><tr><th scope="col">Metadata field</th><th scope="col">Track 01 · K. 525</th><th scope="col">Track 02 · K. 622</th><th scope="col">Track 03 · K. 620</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Title</th><td>Eine kleine Nachtmusik, K. 525: I. Allegro</td><td>Clarinet Concerto in A major, K. 622: II. Adagio</td><td>The Magic Flute, K. 620: Der Hölle Rache kocht in meinem Herzen</td></tr>
+      <tr><th scope="row">Artist / performers</th><td>Advent Chamber Orchestra; musical director: Roxanna Pavel Goldstein</td><td>Markus Krumpöck (clarinet); Merkur Orchester Wiener Neustadt; conductor: Willibald Zwittkovits</td><td>Sandra Partridge (soprano); Siam Philharmonic Orchestra; conductor: Trisdee na Patalung</td></tr>
+      <tr><th scope="row">Composer</th><td>Wolfgang Amadeus Mozart</td><td>Wolfgang Amadeus Mozart</td><td>Wolfgang Amadeus Mozart</td></tr>
+      <tr><th scope="row">Recording licence</th><td><a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a></td><td><a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></td><td><a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a></td></tr>
+      <tr><th scope="row">Genre</th><td>Classical period; string serenade</td><td>Classical period; concerto, slow movement</td><td>Classical period; opera aria</td></tr>
+      <tr><th scope="row">Source</th><td><a href="https://commons.wikimedia.org/wiki/File:Mozart_-_Eine_kleine_Nachtmusik_-_1._Allegro.ogg">Wikimedia Commons [1]</a><br>Al Goldstein collection, Pandora Music repository, ibiblio.org</td><td><a href="https://commons.wikimedia.org/wiki/File:Mozart_Clarinet_Concert_-_2._Adagio.ogg">Wikimedia Commons [2]</a><br>Wikimedia Commons; earlier original source is not specified on the file page</td><td><a href="https://commons.wikimedia.org/wiki/File:Der_Hoelle_Rache.ogg">Wikimedia Commons [3]</a><br>Live Bangkok Opera recording, Thailand Cultural Centre; published by Trisdee na Patalung</td></tr>
+      <tr><th scope="row">Recording date</th><td>2005 or 2006</td><td>6 January 1999</td><td>5 April 2006</td></tr>
+      <tr><th scope="row">File / audio format</th><td>.ogg; Ogg container / Vorbis codec (lossy)</td><td>.ogg; Ogg container / Vorbis codec (lossy)</td><td>.ogg; Ogg container / Vorbis codec (lossy)</td></tr>
+      <tr><th scope="row">Number of channels</th><td>2 (stereo)</td><td>2 (stereo)</td><td>2 (stereo)</td></tr>
+      <tr><th scope="row">Sample rate</th><td>44,100 Hz (44.1 kHz)</td><td>44,100 Hz (44.1 kHz)</td><td>44,100 Hz (44.1 kHz)</td></tr>
+      <tr><th scope="row">Bits per second (approximate average)</th><td>258,000 bps (258 kbps)</td><td>103,000 bps (103 kbps)</td><td>158,000 bps (158 kbps)</td></tr>
+      <tr><th scope="row">Duration (mm:ss)</th><td>05:55</td><td>07:15</td><td>03:11</td></tr>
+    </tbody>
+  </table>
+</div>
+<h2>Task 2: Basic analysis in Sonic Visualiser</h2>
+<section class="analysis-track" aria-labelledby="analysis-525">
+  <h3 id="analysis-525">Track 01: K. 525</h3>
+  <figure>
+    <a href="data/week8/images/K525_waveform.png"><img src="data/week8/images/K525_waveform.png" alt="Two-channel waveform of Eine kleine Nachtmusik, K. 525: I. Allegro" width="1200" loading="lazy"></a>
+    <figcaption>Figure 1. Stereo waveform of K. 525. <a href="data/week8/images/K525_waveform.png" download>Download PNG</a>.</figcaption>
+  </figure>
+  <figure>
+    <a href="data/week8/images/K525_spectrogram_log.png"><img src="data/week8/images/K525_spectrogram_log.png" alt="Log-frequency spectrogram of Eine kleine Nachtmusik, K. 525: I. Allegro" width="1200" loading="lazy"></a>
+    <figcaption>Figure 2. Log-frequency spectrogram of K. 525. <a href="data/week8/images/K525_spectrogram_log.png" download>Download PNG</a>.</figcaption>
+  </figure>
+  </section>
+<section class="analysis-track" aria-labelledby="analysis-622">
+  <h3 id="analysis-622">Track 02: K. 622</h3>
+  <figure>
+    <a href="data/week8/images/K622_waveform.png"><img src="data/week8/images/K622_waveform.png" alt="Two-channel waveform of Clarinet Concerto in A major, K. 622: II. Adagio" width="1200" loading="lazy"></a>
+    <figcaption>Figure 3. Stereo waveform of K. 622. <a href="data/week8/images/K622_waveform.png" download>Download PNG</a>.</figcaption>
+  </figure>
+  <figure>
+    <a href="data/week8/images/K622_spectrogram_log.png"><img src="data/week8/images/K622_spectrogram_log.png" alt="Log-frequency spectrogram of Clarinet Concerto in A major, K. 622: II. Adagio" width="1200" loading="lazy"></a>
+    <figcaption>Figure 4. Log-frequency spectrogram of K. 622. <a href="data/week8/images/K622_spectrogram_log.png" download>Download PNG</a>.</figcaption>
+  </figure>
+  </section>
+<section class="analysis-track" aria-labelledby="analysis-620">
+  <h3 id="analysis-620">Track 03: K. 620</h3>
+  <figure>
+    <a href="data/week8/images/K620_waveform.png"><img src="data/week8/images/K620_waveform.png" alt="Two-channel waveform of The Magic Flute, K. 620: Der Hölle Rache kocht in meinem Herzen" width="1200" loading="lazy"></a>
+    <figcaption>Figure 5. Stereo waveform of K. 620. <a href="data/week8/images/K620_waveform.png" download>Download PNG</a>.</figcaption>
+  </figure>
+  <figure>
+    <a href="data/week8/images/K620_spectrogram_log.png"><img src="data/week8/images/K620_spectrogram_log.png" alt="Log-frequency spectrogram of The Magic Flute, K. 620: Der Hölle Rache kocht in meinem Herzen" width="1200" loading="lazy"></a>
+    <figcaption>Figure 6. Log-frequency spectrogram of K. 620. <a href="data/week8/images/K620_spectrogram_log.png" download>Download PNG</a>.</figcaption>
+  </figure>
+  </section>
+
+
+<h2 id="reflection">Reflection</h2>
+<p class="blank-entry"></p>
+
+<h2>References</h2>
+<ol class="sources">
+<li><a href="https://commons.wikimedia.org/wiki/File:Mozart_-_Eine_kleine_Nachtmusik_-_1._Allegro.ogg">Eine kleine Nachtmusik, K. 525: I. Allegro</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Mozart_Clarinet_Concert_-_2._Adagio.ogg">Clarinet Concerto in A major, K. 622: II. Adagio</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Der_Hoelle_Rache.ogg">The Magic Flute, K. 620: Der Hölle Rache kocht in meinem Herzen</a></li>
+</ol>
+
+    </article>
+<nav class="week-nav" aria-label="Portfolio weeks">
+  <a href="index.html">Homepage</a>
+  <a href="week-1.html">Week 1</a>
+  <a href="week-2.html">Week 2</a>
+  <a href="verovio.html">Week 3</a>
+  <a href="week-4.html">Week 4</a>
+  <a href="week-5.html">Week 5</a>
+  <a href="week-7.html">Week 7</a>
+  <a href="week-8.html" aria-current="page">Week 8</a>
+  <a href="week-9.html">Week 9<small>Coming soon</small></a>
+  <a href="week-10.html">Week 10<small>Coming soon</small></a>
+</nav>
+    <section class="ai-assistance" aria-labelledby="ai-heading">
+      <h2 id="ai-heading">AI assistance</h2>
+      <p class="blank-entry"></p>
+    </section>
+  </main>
+  <footer><p><small>Music Curation and Analytics<br>Hana Deng · 3050366D</small></p></footer>
+</body>
 </html>

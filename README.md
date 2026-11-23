@@ -10,7 +10,8 @@
 | [Week 4](https://dengyuhan0318-web.github.io/MCA-2026/week-4.html) | jSymbolic analysis and music21 piano roll, pitch histogram and scatter plot for the Rondo alla Turca excerpt |
 | [Week 5](https://dengyuhan0318-web.github.io/MCA-2026/week-5.html) | Metadata schema and final MEI encoding for the Rondo alla Turca excerpt |
 | [Week 7](https://dengyuhan0318-web.github.io/MCA-2026/week-7.html) | Updated MEI metadata, genre classification, licensing and Verovio score rendering |
-| Weeks 8–10 | Coming soon |
+| [Week 8](https://dengyuhan0318-web.github.io/MCA-2026/week-8.html) | Three Mozart recordings, technical and descriptive metadata, stereo waveforms and log-frequency spectrograms |
+| Weeks 9–10 | Coming soon |
 
 ### Files
 - [Week 1 original text](week-1.md)
@@ -21,6 +22,8 @@
 - [Week 5 metadata schema](week-5.md)
 - [Final MEI file (Week 5)](data/Week5-Mei.mei)
 - [Updated MEI metadata (Week 7)](data/Week5-Mei-v2.mei)
+- [Week 8 text and audio analysis](week-8.md)
+- [Week 8 audio, images, sessions and recording credits](data/week8/ATTRIBUTION.md)
 
 Score encodings are stored in `data/`; portfolio pages remain at the repository root. The original MuseScore source and source PDF retain their existing paths.
 
