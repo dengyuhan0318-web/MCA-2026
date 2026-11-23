@@ -14,15 +14,12 @@
 | Weeks 9–10 | Coming soon |
 
 ### Files
-- [Week 1 original text](week-1.md)
 - [MuseScore file: Rondo alla Turca, 15 bars](Mozart_Rondo_alla_Turca_15_bars.mscz)
 - [Uncompressed MusicXML](data/Mozart_Rondo_alla_Turca_15_bars.musicxml)
 - [MEI converted with Verovio](data/Mozart_Rondo_alla_Turca_15_bars.mei)
 - [Verovio activity and comparisons](verovio.html)
-- [Week 5 metadata schema](week-5.md)
 - [Final MEI file (Week 5)](data/Week5-Mei.mei)
 - [Updated MEI metadata (Week 7)](data/Week5-Mei-v2.mei)
-- [Week 8 text and audio analysis](week-8.md)
 - [Week 8 audio, images, sessions and recording credits](data/week8/ATTRIBUTION.md)
 
 Score encodings are stored in `data/`; portfolio pages remain at the repository root. The original MuseScore source and source PDF retain their existing paths.
